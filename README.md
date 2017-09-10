@@ -1,4 +1,29 @@
-  public function updateStep3(Request $request)
+composer.json
+
+    "repositories": [
+        {
+            "type": "path",
+            "url": "https://tungnguyen@bitbucket.org/aladdin_payment/napas.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.3.*",
+        "intervention/image": "^2.3",
+        "laravelcollective/html": "^5.3.0",
+        "cviebrock/eloquent-sluggable": "^4.1",
+        "laracasts/utilities": "~2.0",
+        "mews/purifier": "^2.0",
+        "gloudemans/shoppingcart": "^2.3",
+        "zizaco/entrust": "5.2.x-dev",
+        "roumen/sitemap": "^2.6",
+        "artesaos/seotools": "^0.10.0",
+        "symfony/event-dispatcher": "^2.8",
+        "omnipay/common": "^2.5",
+        "omnipay/napas": "*",
+    },
+
+public function updateStep3(Request $request)
     {
 
         $input = session()->get('order_info')[0];
