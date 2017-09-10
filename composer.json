@@ -1,0 +1,38 @@
+{
+    "name": "omnipay/napas",
+    "version": "1.0.0",
+    "version_normalized": "1.0.0.0",
+    "type": "library",
+    "description": "Napas driver for the Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "napas",
+        "purchase"
+    ],
+    "homepage": "https://github.com/tunguyen/omnipay-napas",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tung Nguyen",
+            "email": "tunguyen@altech.vn"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Napas\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
