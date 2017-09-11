@@ -1,4 +1,4 @@
-composer.json
+1. composer.json
 
     "repositories": [
         {
@@ -18,12 +18,17 @@ composer.json
         "zizaco/entrust": "5.2.x-dev",
         "roumen/sitemap": "^2.6",
         "artesaos/seotools": "^0.10.0",
+
         "symfony/event-dispatcher": "^2.8",
         "omnipay/common": "^2.5",
         "omnipay/napas": "*",
     },
 
-public function updateStep3(Request $request)
+2. File sử lý thanh toán
+    /*
+     * Sử lý thanh toán
+     */
+    public function updateStep3(Request $request)
     {
 
         $input = session()->get('order_info')[0];
@@ -51,6 +56,9 @@ public function updateStep3(Request $request)
 
     }
 
+    /*
+     * Nhận kết quả trả về
+     */
     public function completePurchase(Request $request)
     {
         /* Payment gateway */
@@ -74,5 +82,14 @@ public function updateStep3(Request $request)
             'vpc_SecureHash' => $request->get('vpc_SecureHash'),
         );
        $response = $napas->completePurchase($parameters)->send();
-       dd ($response);
+
+       /* nếu là testMode thì không lưu */
+       //echo $response->isTestMode();
+       /* Check nếu thanh toán thành công */
+       //echo $response->isSuccessful();
+       /* Lấy thông tin trả về dạng code*/ 
+       echo $response->getMessage();
+
+       // Tiếp tục sử lý lưu thông tin database và xuất hóa đơn
+       //return redirect()->route('showTicketOrder4');
     }

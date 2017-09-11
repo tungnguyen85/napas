@@ -222,12 +222,77 @@ class CompletePurchaseRequest extends AbstractRequest
     public function getData()
     {
         $data = array();
+
+        $vpc_Version = $this->getVpcVersion();
+        if (isset($vpc_Version))
+            $data['vpc_Version'] = $vpc_Version;
+
+        $vpc_Locale = $this->getVpcLocale();
+        if (isset($vpc_Locale))
+            $data['vpc_Locale'] = $vpc_Locale;
+
+        $vpc_Command =  $this->getVpcCommand();
+        if (isset($vpc_Command))
+            $data['vpc_Command'] = $vpc_Command;
+
+        $vpc_Merchant = $this->getVpcMerchant();
+        if (isset($vpc_Merchant))
+            $data['vpc_Merchant'] = $vpc_Merchant;
+
+        $vpc_MerchTxnRef = $this->getVpcMerchTxnRef();
+        if (isset($vpc_MerchTxnRef))
+            $data['vpc_MerchTxnRef'] = $vpc_MerchTxnRef;
+
+        $vpc_Amount = $this->getVpcAmount();
+        if (isset($vpc_Amount))
+            $data['vpc_Amount'] = $vpc_Amount;
+
+        $vpc_Currency = $this->getVpcCurrency();
+        if (isset($vpc_Currency))
+            $data['vpc_CurrencyCode'] = $vpc_Currency;
+
+        $vpc_CardType = $this->getVpcCardType();
+        if (isset($vpc_CardType))
+            $data['vpc_CardType'] = $vpc_CardType;
+
+        $vpc_OrderInfo = $this->getVpcOrderInfo();
+        if (isset($vpc_OrderInfo))
+            $data['vpc_OrderInfo'] = $vpc_OrderInfo;
+
+        $vpc_ResponseCode = $this->getVpcResponseCode();
+        if (isset($vpc_ResponseCode))
+            $data['vpc_ResponseCode'] = $vpc_ResponseCode;
+
+        $vpc_TransactionNo = $this->getVpcTransactionNo();
+        if (isset($vpc_TransactionNo))
+            $data['vpc_TransactionNo'] = $vpc_TransactionNo;
+
+        $vpc_BatchNo = $this->getVpcBatchNo();
+        if (isset($vpc_BatchNo))
+            $data['vpc_BatchNo'] = $vpc_BatchNo;
+
+        $vpc_AcqResponseCode = $this->getVpcAcqResponseCode();
+        if (isset($vpc_AcqResponseCode))
+            $data['vpc_AcqResponseCode'] = $vpc_AcqResponseCode;
+
+        $vpc_Message = $this->getVpcMessage();
+        if (isset($vpc_Message))
+            $data['vpc_Message'] = $vpc_Message;
+
+        $vpc_AdditionalData = $this->getVpcAdditionalData();
+        if (isset($vpc_AdditionalData))
+            $data['vpc_AdditionalData'] = $vpc_AdditionalData;
+
+        $vpc_SecureHash = $this->getVpcSecureHash();
+        if (isset($vpc_SecureHash))
+            $data['vpc_SecureHash'] = $vpc_SecureHash;
+
         return $data;
     }
 
     public function sendData($data)
     {
-        return new CompletePurchaseResponse($this, (object) $this->httpRequest->request->all());
+        return new CompletePurchaseResponse($this, $data);
     }
 
 }

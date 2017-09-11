@@ -35,7 +35,7 @@ class Gateway extends AbstractGateway
             'vpc_Merchant' => 'SMLTEST',
             'vpc_AccessCode' => 'ECAFAB',
             'vpc_ReturnURL' => 'http://ticketgo.dev/SMLTesting2/vpc_php_merchant_dr.php',
-            'vpc_BackURL' => 'http://localhost/SMLTesting2/vpc_php_serverhost.html',
+            'vpc_BackURL' => 'http://ticketgo.dev',
             'vpc_Locale' => 'vn',
             'vpc_Currency' => 'VND',
             'testMode' => true,
